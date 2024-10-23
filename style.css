@@ -24,6 +24,7 @@
     position: fixed;
     top: 20px;
     right: 20px;
+    cursor: pointer;
 }
 #theme-switch svg{
     fill: var(--accent-color);
