@@ -2,6 +2,24 @@ const todoForm = document.querySelector('form');
 const todoInput = document.getElementById('todo-input');
 const todoListUL = document.getElementById('todo-list');
 
+let brightmode = localStorage.getItem('brightmode')
+const themeSwitch = document.getElementById('theme-switch')
+
+const enableBrightmode = () => {
+    document.body.classList.add('brightmode')
+    localStorage.setItem('brightmode', 'active')
+}
+const disableBrightmode = () => {
+    document.body.classList.remove('brightmode')
+    localStorage.setItem('brightmode', null)
+}
+if(brightmode === "active") enableBrightmode()
+
+themeSwitch.addEventListener("click", ()=> {
+    brightmode = localStorage.getItem('brightmode')
+    brightmode !== "active" ? enableBrightmode() : disableBrightmode()
+})
+
 let allTodos = getTodos();
 updateTodoList();
 
